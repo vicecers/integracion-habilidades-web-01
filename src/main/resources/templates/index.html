@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Solicitud</h1>
+        <p>Después de introducir los datos oprimir el botón enviar</p>
+
+        <form th:action="@{/register}" th:object="${solicitud}" method="post">
+            <table border="1">
+                <tr>
+                    <th> Nombre: </th>
+                    <td><input type="text" th:field="*{nombre}" ></td>
+                </tr>
+                <tr>
+                    <th> Apellido: </th>
+                    <td><input type="text" th:field="*{apellido}"></td>
+                </tr>
+                <tr>
+                    <th> Correo: </th>
+                    <td><input type="text" th:field="*{correo}"></td>
+                </tr>
+            </table>
+
+            <p>Eres:<br>
+                <input type="radio" id="hombre" name="sexo"  th:field="*{sexo}" value="H">
+                <label for="hombre">Hombre</label>
+
+                <input type="radio" id="mujer" name="sexo"  th:field="*{sexo}" value="M">
+                <label for="mujer">Mujer</label>
+            </p>
+
+
+            <p>Selecciona lo que sabes:</p>
+            <input type="checkbox" id="java" name="lenguajes" th:field="*{lenguajes}" value="JAVA">
+            <label for="java">JAVA</label>
+
+            <input type="checkbox" id="php" name="lenguajes"  th:field="*{lenguajes}" value="PHP">
+            <label for="php">PHP</label>
+
+            <input type="checkbox" id="c" name="lenguajes"  th:field="*{lenguajes}" value="C++">
+            <label for="c">C++</label>
+
+            <input type="checkbox" id="html" name="lenguajes"  th:field="*{lenguajes}" value="HTML">
+            <label for="html">HTML</label>
+
+
+
+
+            <table cellspacing="5" cellpadding="5">
+                <tr>
+                    <td> Selecciona los idiomas que comprendes:</td>
+                    <td> Comentarios adicionales </td>
+                </tr> 
+                
+                    <td>
+                        <select id="idiomas" multiple th:field="*{idiomas}">
+                            <option value="Español" th:text="Español">Español</option>
+                            <option value="Inglés" th:text="Inglés">Inglés</option>
+                            <option value="Alemán" th:text="Alemán">Alemán</option>
+                            <option value="Francés" th:text="Francés">Francés</option>
+                        </select>
+                    </td>
+
+                    <<td>
+                        <textarea  type="text"  id="text" th:field="*{comentarios}">>
+                        </textarea>
+                    </td>
+                
+
+
+            </table>
+
+
+            <p>
+                <input type="reset" value="Borrar">
+                <input type="submit" value="Enviar">
+            </p>
+
+
+
+
+        </form>
+
+    </body>
+</html>

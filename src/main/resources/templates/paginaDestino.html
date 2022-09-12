@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Solicitud recibida</h1>
+        <h2>Tus datos son:</h2>
+        <table border="1">
+            <tr>
+                <th> Nombre: </th>
+                <td><label th:text="${solicitud.nombre}" ></td></label>
+            </tr>
+            <tr>
+                <th> Apellido: </th>
+                <td><label th:text="${solicitud.apellido}"></td></label>
+            </tr>
+            <tr>
+                <th> Correo: </th>
+                <td><label th:text="${solicitud.correo}"></td></label>
+            </tr>
+            <tr>
+                <th> Eres: </th>
+                <td><label th:text="${solicitud.sexo}"></td></label>
+            </tr>
+        </table>
+        <br>
+        <label>Manejas los siguientes lenguajes de programación</label> <br>
+        <label th:text="${solicitud.lenguajes}"></label>
+        <br> <br>
+        <label>Los idiomas que comprendes son:</label> <br>
+        <label th:text="${solicitud.idiomas}"></label>
+        <br> <br>
+        <a th:href="@{/}">
+            <button>Regresar</button>
+        </a> 
+
+
+    </body>
+</html>
